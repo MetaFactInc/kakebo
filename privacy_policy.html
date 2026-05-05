@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#3d2b1f">
+  <title>プライバシーポリシー — Kakebo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;500&family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg:        #faf7f2;
+      --surface:   #ffffff;
+      --border:    #e8e0d5;
+      --text:      #2d2520;
+      --text-sub:  #7a6f66;
+      --accent:    #8b6f47;
+      --accent-lt: #f0e8dc;
+      --divider:   #d6cdc2;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Noto Sans JP', sans-serif;
+      font-weight: 300;
+      font-size: 15px;
+      line-height: 1.85;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── ヘッダー ── */
+    header {
+      background: var(--text);
+      padding: 0 40px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-family: 'Noto Serif JP', serif;
+      font-weight: 400;
+      font-size: 18px;
+      color: #fff;
+      letter-spacing: 0.08em;
+      text-decoration: none;
+    }
+
+    .logo span {
+      display: inline-block;
+      margin-left: 10px;
+      font-family: 'Noto Sans JP', sans-serif;
+      font-weight: 300;
+      font-size: 11px;
+      color: #b8a898;
+      letter-spacing: 0.12em;
+      vertical-align: middle;
+    }
+
+    /* ── ヒーロー ── */
+    .hero {
+      background: var(--text);
+      padding: 56px 40px 48px;
+      border-bottom: 1px solid #4a3a2e;
+    }
+
+    .hero-inner {
+      max-width: 760px;
+      margin: 0 auto;
+    }
+
+    .hero-label {
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      color: #b8a898;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .hero h1 {
+      font-family: 'Noto Serif JP', serif;
+      font-weight: 400;
+      font-size: clamp(24px, 4vw, 34px);
+      color: #f5f0e8;
+      letter-spacing: 0.04em;
+      line-height: 1.4;
+      margin-bottom: 16px;
+    }
+
+    .hero-meta {
+      font-size: 12px;
+      color: #8a7a6e;
+      letter-spacing: 0.06em;
+    }
+
+    /* ── メインコンテンツ ── */
+    main {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 56px 40px 96px;
+    }
+
+    /* リード文 */
+    .lead {
+      background: var(--accent-lt);
+      border-left: 3px solid var(--accent);
+      padding: 20px 24px;
+      border-radius: 0 6px 6px 0;
+      font-size: 14px;
+      color: #5a4a3a;
+      margin-bottom: 48px;
+      line-height: 1.9;
+    }
+
+    /* セクション */
+    section {
+      margin-bottom: 48px;
+    }
+
+    section:last-child { margin-bottom: 0; }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 16px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--divider);
+    }
+
+    .section-mark {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+      flex-shrink: 0;
+    }
+
+    .section-header h2 {
+      font-family: 'Noto Serif JP', serif;
+      font-weight: 400;
+      font-size: 17px;
+      color: var(--text);
+      letter-spacing: 0.04em;
+    }
+
+    p {
+      font-size: 14px;
+      color: #3d3028;
+      line-height: 1.95;
+      margin-bottom: 12px;
+    }
+
+    p:last-child { margin-bottom: 0; }
+
+    strong {
+      font-weight: 500;
+      color: var(--text);
+    }
+
+    /* リスト */
+    .detail-list {
+      list-style: none;
+      padding: 0;
+      margin: 12px 0;
+    }
+
+    .detail-list li {
+      font-size: 14px;
+      color: #3d3028;
+      line-height: 1.85;
+      padding: 6px 0 6px 18px;
+      position: relative;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .detail-list li:last-child { border-bottom: none; }
+
+    .detail-list li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 5px;
+      height: 1px;
+      background: var(--accent);
+    }
+
+    /* テーブル */
+    .table-wrap {
+      overflow-x: auto;
+      margin: 16px 0;
+      border-radius: 6px;
+      border: 1px solid var(--border);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+
+    thead {
+      background: var(--accent-lt);
+    }
+
+    th {
+      text-align: left;
+      padding: 10px 16px;
+      font-weight: 500;
+      color: var(--accent);
+      letter-spacing: 0.04em;
+      font-size: 12px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    td {
+      padding: 10px 16px;
+      border-bottom: 1px solid var(--border);
+      color: #3d3028;
+      line-height: 1.7;
+    }
+
+    tr:last-child td { border-bottom: none; }
+
+    /* 注釈ボックス */
+    .note-box {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 18px 22px;
+      margin-top: 14px;
+    }
+
+    .note-box p {
+      font-size: 13px;
+      color: var(--text-sub);
+      line-height: 1.9;
+      margin-bottom: 0;
+    }
+
+    /* お問い合わせ */
+    .contact-box {
+      background: var(--text);
+      border-radius: 8px;
+      padding: 28px 32px;
+      margin-top: 16px;
+    }
+
+    .contact-box p {
+      color: #c8b8a8;
+      font-size: 13px;
+      line-height: 1.9;
+    }
+
+    .contact-box strong {
+      color: #f0e8dc;
+    }
+
+    .contact-placeholder {
+      display: inline-block;
+      background: #4a3a2e;
+      border: 1px dashed #8b6f47;
+      border-radius: 4px;
+      padding: 2px 10px;
+      font-size: 12px;
+      color: #b8a898;
+      font-style: italic;
+      margin-top: 4px;
+    }
+
+    /* フッター */
+    footer {
+      background: #1e1612;
+      padding: 32px 40px;
+      text-align: center;
+    }
+
+    .footer-logo {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 15px;
+      color: #6a5a50;
+      letter-spacing: 0.1em;
+      margin-bottom: 10px;
+    }
+
+    .footer-copy {
+      font-size: 11px;
+      color: #4a3a30;
+      letter-spacing: 0.08em;
+    }
+
+    /* レスポンシブ */
+    @media (max-width: 600px) {
+      header { padding: 0 20px; }
+      .hero  { padding: 40px 20px 36px; }
+      main   { padding: 40px 20px 72px; }
+      footer { padding: 28px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ヘッダー -->
+  <header>
+    <a href="index.html" class="logo">Kakebo<span>家計簿アプリ</span></a>
+  </header>
+
+  <!-- ヒーロー -->
+  <div class="hero">
+    <div class="hero-inner">
+      <p class="hero-label">Legal</p>
+      <h1>プライバシーポリシー</h1>
+      <p class="hero-meta">最終更新日：2026年5月5日</p>
+    </div>
+  </div>
+
+  <!-- メイン -->
+  <main>
+
+    <div class="lead">
+      MetaFact Inc.（以下「開発者」）が提供する家計簿アプリ「Kakebo」（以下「本アプリ」）をご利用いただきありがとうございます。
+      本プライバシーポリシーは、本アプリにおける個人情報およびユーザーデータの取り扱いについて説明するものです。
+    </div>
+
+    <!-- 取得する情報 -->
+    <section>
+      <div class="section-header">
+        <span class="section-mark"></span>
+        <h2>取得する情報</h2>
+      </div>
+      <p><strong>本アプリは、いかなる個人情報も収集・送信しません。</strong></p>
+      <p>本アプリに入力された収支データ（金額・カテゴリー・メモ・日付など）はすべて、お使いのデバイス内にローカル保存されます。これらのデータが開発者や第三者のサーバーに送信されることは一切ありません。</p>
+      <ul class="detail-list">
+        <li>氏名・住所・メールアドレスなどの個人を特定できる情報は収集しません</li>
+        <li>位置情報は取得しません</li>
+        <li>カメラ・マイクへのアクセスは行いません</li>
+        <li>アプリの使用状況・クラッシュレポートなどの分析データは収集しません</li>
+        <li>広告配信のためのトラッキングは行いません</li>
+      </ul>
+    </section>
+
+    <!-- データの保存場所 -->
+    <section>
+      <div class="section-header">
+        <span class="section-mark"></span>
+        <h2>データの保存場所</h2>
+      </div>
+      <p>入力されたすべてのデータは、お使いのデバイス上のローカルデータベース（SQLite）にのみ保存されます。</p>
+      <div class="note-box">
+        <p>現在のバージョンではクラウドへのバックアップや同期機能は実装されていません。アプリを削除するとデータも削除されますのでご注意ください。</p>
+      </div>
+    </section>
+
+    <!-- 第三者への提供 -->
+    <section>
+      <div class="section-header">
+        <span class="section-mark"></span>
+        <h2>第三者へのデータ提供</h2>
+      </div>
+      <p>開発者は、ユーザーのデータを第三者に販売・提供・開示することは一切ありません。</p>
+    </section>
+
+    <!-- アクセス権限 -->
+    <section>
+      <div class="section-header">
+        <span class="section-mark"></span>
+        <h2>アプリのアクセス権限</h2>
+      </div>
+      <p>本アプリが使用するデバイス権限は以下の通りです。</p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>権限</th>
+              <th>用途</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>ストレージ（内部）</td>
+              <td>収支データのローカル保存のみ</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p>上記以外の権限は要求しません。</p>
+    </section>
+
+    <!-- 広告について -->
+    <section>
+      <div class="section-header">
+        <span class="section-mark"></span>
+        <h2>広告について</h2>
+      </div>
+      <p>本アプリには広告は表示されません。広告ネットワークによるデータ収集も行いません。</p>
+    </section>
+
+    <!-- 子どものプライバシー -->
+    <section>
+      <div class="section-header">
+        <span class="section-mark"></span>
+        <h2>子どものプライバシーについて</h2>
+      </div>
+      <p>本アプリは13歳未満の子どもを対象としていません。13歳未満の方から意図的に個人情報を収集することはありません。</p>
+    </section>
+
+    <!-- ポリシーの変更 -->
+    <section>
+      <div class="section-header">
+        <span class="section-mark"></span>
+        <h2>プライバシーポリシーの変更について</h2>
+      </div>
+      <p>本ポリシーは予告なく変更される場合があります。変更があった場合は、本ページの「最終更新日」を更新します。重要な変更がある場合はアプリ内でもお知らせします。</p>
+    </section>
+
+    <!-- お問い合わせ -->
+    <section>
+      <div class="section-header">
+        <span class="section-mark"></span>
+        <h2>お問い合わせ</h2>
+      </div>
+      <p>本プライバシーポリシーに関するご質問・ご意見は以下までお問い合わせください。</p>
+      <div class="contact-box">
+        <p><strong>開発者：</strong> MetaFact Inc.</p>
+        <p><strong>メールアドレス：</strong><br>
+          <span class="contact-placeholder">※ App Store 申請前に記載してください</span>
+        </p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- フッター -->
+  <footer>
+    <div class="footer-logo">Kakebo</div>
+    <div class="footer-copy">© 2026 MetaFact Inc. All rights reserved.</div>
+  </footer>
+
+</body>
+</html>
