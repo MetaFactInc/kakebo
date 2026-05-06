@@ -1,0 +1,751 @@
+/* Shared styles for Kakebo static pages. */
+
+/* index.html */
+:root {
+      --bg: #faf7f2;
+      --surface: #ffffff;
+      --border: #e8e0d5;
+      --text: #2d2520;
+      --text-sub: #7a6f66;
+      --accent: #8b6f47;
+      --accent-lt: #f0e8dc;
+      --divider: #d6cdc2;
+      --green: #53725f;
+      --blue: #4e6476;
+      --clay: #a66f57;
+    }
+
+    .page-home *, .page-home *::before, .page-home *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body.page-home {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Noto Sans JP', sans-serif;
+      font-weight: 300;
+      font-size: 15px;
+      line-height: 1.85;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .page-home a { color: inherit; }
+
+    .page-home header {
+      background: var(--text);
+      padding: 0 40px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .page-home .logo {
+      font-family: 'Noto Serif JP', serif;
+      font-weight: 400;
+      font-size: 18px;
+      color: #fff;
+      letter-spacing: 0.08em;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .page-home .logo span {
+      display: inline-block;
+      margin-left: 10px;
+      font-family: 'Noto Sans JP', sans-serif;
+      font-weight: 300;
+      font-size: 11px;
+      color: #b8a898;
+      letter-spacing: 0.12em;
+      vertical-align: middle;
+    }
+
+    .page-home nav {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .page-home nav a {
+      color: #c8b8a8;
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-decoration: none;
+    }
+
+    .page-home .hero {
+      background:
+        linear-gradient(135deg, rgba(45, 37, 32, 0.96), rgba(63, 48, 39, 0.92)),
+        radial-gradient(circle at 80% 20%, rgba(139, 111, 71, 0.34), transparent 34%);
+      border-bottom: 1px solid #4a3a2e;
+      color: #f5f0e8;
+      min-height: 560px;
+      padding: 72px 40px 52px;
+      display: flex;
+      align-items: center;
+    }
+
+    .page-home .hero-inner {
+      width: 100%;
+      max-width: 1040px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 360px;
+      gap: 56px;
+      align-items: center;
+    }
+
+    .page-home .hero-label {
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      color: #b8a898;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+
+    .page-home h1 {
+      font-family: 'Noto Serif JP', serif;
+      font-weight: 400;
+      font-size: clamp(30px, 5vw, 48px);
+      line-height: 1.35;
+      letter-spacing: 0.04em;
+      margin-bottom: 22px;
+    }
+
+    .page-home .hero-copy {
+      max-width: 560px;
+      color: #d5c8bc;
+      font-size: 15px;
+      line-height: 2;
+      margin-bottom: 30px;
+    }
+
+    .page-home .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .page-home .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      padding: 0 22px;
+      border-radius: 6px;
+      border: 1px solid transparent;
+      font-size: 13px;
+      letter-spacing: 0.06em;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .page-home .button-primary {
+      background: #f0e8dc;
+      color: var(--text);
+      border-color: #f0e8dc;
+    }
+
+    .page-home .button-secondary {
+      color: #f0e8dc;
+      border-color: #7a6656;
+    }
+
+    .page-home .app-panel {
+      background: #f8f3ea;
+      border: 1px solid #d8cdbc;
+      border-radius: 8px;
+      padding: 24px;
+      color: var(--text);
+      box-shadow: 0 24px 60px rgba(18, 12, 8, 0.24);
+    }
+
+    .page-home .app-panel-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      padding-bottom: 18px;
+      border-bottom: 1px solid var(--divider);
+      margin-bottom: 20px;
+    }
+
+    .page-home .month {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 19px;
+      letter-spacing: 0.05em;
+    }
+
+    .page-home .balance {
+      font-size: 12px;
+      color: var(--text-sub);
+      text-align: right;
+    }
+
+    .page-home .balance strong {
+      display: block;
+      color: var(--text);
+      font-size: 22px;
+      font-weight: 400;
+      line-height: 1.3;
+    }
+
+    .page-home .summary-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .page-home .summary-item {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 12px 14px;
+    }
+
+    .page-home .summary-label {
+      color: var(--text-sub);
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      margin-bottom: 4px;
+    }
+
+    .page-home .summary-value {
+      color: var(--text);
+      font-size: 17px;
+      font-weight: 400;
+    }
+
+    .page-home .records {
+      list-style: none;
+      display: grid;
+      gap: 10px;
+    }
+
+    .page-home .records li {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 12px 14px;
+      font-size: 13px;
+    }
+
+    .page-home .record-name {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      min-width: 0;
+    }
+
+    .page-home .dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      flex: 0 0 auto;
+    }
+
+    .page-home .dot-green { background: var(--green); }
+    .page-home .dot-blue { background: var(--blue); }
+    .page-home .dot-clay { background: var(--clay); }
+
+    .page-home main {
+      max-width: 1040px;
+      margin: 0 auto;
+      padding: 64px 40px 96px;
+    }
+
+    .page-home .lead {
+      background: var(--accent-lt);
+      border-left: 3px solid var(--accent);
+      border-radius: 0 6px 6px 0;
+      color: #5a4a3a;
+      font-size: 14px;
+      line-height: 1.95;
+      margin-bottom: 56px;
+      padding: 20px 24px;
+    }
+
+    .page-home section {
+      margin-bottom: 56px;
+    }
+
+    .page-home section:last-child { margin-bottom: 0; }
+
+    .page-home .section-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 20px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--divider);
+    }
+
+    .page-home .section-mark {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+      flex-shrink: 0;
+    }
+
+    .page-home h2 {
+      font-family: 'Noto Serif JP', serif;
+      font-weight: 400;
+      font-size: 19px;
+      color: var(--text);
+      letter-spacing: 0.04em;
+    }
+
+    .page-home p {
+      color: #3d3028;
+      font-size: 14px;
+      line-height: 1.95;
+    }
+
+    .page-home .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .page-home .feature-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 22px;
+      min-height: 190px;
+    }
+
+    .page-home .feature-number {
+      color: var(--accent);
+      font-family: 'Noto Serif JP', serif;
+      font-size: 22px;
+      margin-bottom: 18px;
+    }
+
+    .page-home .feature-card h3 {
+      font-family: 'Noto Serif JP', serif;
+      font-weight: 400;
+      font-size: 16px;
+      letter-spacing: 0.04em;
+      margin-bottom: 10px;
+    }
+
+    .page-home .feature-card p {
+      color: var(--text-sub);
+      font-size: 13px;
+      line-height: 1.9;
+    }
+
+    .page-home .privacy-band {
+      background: var(--text);
+      border-radius: 8px;
+      color: #f0e8dc;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 28px;
+      align-items: center;
+      padding: 30px 34px;
+    }
+
+    .page-home .privacy-band h2 {
+      color: #f5f0e8;
+      margin-bottom: 8px;
+    }
+
+    .page-home .privacy-band p {
+      color: #c8b8a8;
+      font-size: 13px;
+      line-height: 1.9;
+    }
+
+    .page-home .privacy-band .button {
+      color: #f0e8dc;
+      border-color: #7a6656;
+    }
+
+    .page-home footer {
+      background: #1e1612;
+      padding: 32px 40px;
+      text-align: center;
+    }
+
+    .page-home .footer-logo {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 15px;
+      color: #6a5a50;
+      letter-spacing: 0.1em;
+      margin-bottom: 10px;
+    }
+
+    .page-home .footer-copy {
+      font-size: 11px;
+      color: #4a3a30;
+      letter-spacing: 0.08em;
+    }
+
+    @media (max-width: 860px) {
+      .page-home .hero-inner {
+        grid-template-columns: 1fr;
+        gap: 36px;
+      }
+
+      .page-home .app-panel {
+        max-width: 420px;
+      }
+
+      .page-home .feature-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .page-home .feature-card {
+        min-height: auto;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .page-home header {
+        height: auto;
+        min-height: 60px;
+        padding: 14px 20px;
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      .page-home .logo span {
+        display: block;
+        margin-left: 0;
+        margin-top: 2px;
+      }
+
+      .page-home nav {
+        gap: 14px;
+      }
+
+      .page-home .hero {
+        min-height: auto;
+        padding: 48px 20px 44px;
+      }
+
+      .page-home .hero-actions {
+        align-items: stretch;
+        flex-direction: column;
+      }
+
+      .page-home .button {
+        width: 100%;
+      }
+
+      .page-home main {
+        padding: 44px 20px 72px;
+      }
+
+      .page-home .summary-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .page-home .records li {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 6px;
+      }
+
+      .page-home .privacy-band {
+        grid-template-columns: 1fr;
+        padding: 26px 22px;
+      }
+
+      .page-home footer {
+        padding: 28px 20px;
+      }
+    }
+
+/* privacy_policy.html */
+:root {
+      --bg:        #faf7f2;
+      --surface:   #ffffff;
+      --border:    #e8e0d5;
+      --text:      #2d2520;
+      --text-sub:  #7a6f66;
+      --accent:    #8b6f47;
+      --accent-lt: #f0e8dc;
+      --divider:   #d6cdc2;
+    }
+
+    .page-privacy *, .page-privacy *::before, .page-privacy *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body.page-privacy {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Noto Sans JP', sans-serif;
+      font-weight: 300;
+      font-size: 15px;
+      line-height: 1.85;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .page-privacy header {
+      background: var(--text);
+      padding: 0 40px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .page-privacy .logo {
+      font-family: 'Noto Serif JP', serif;
+      font-weight: 400;
+      font-size: 18px;
+      color: #fff;
+      letter-spacing: 0.08em;
+      text-decoration: none;
+    }
+
+    .page-privacy .logo span {
+      display: inline-block;
+      margin-left: 10px;
+      font-family: 'Noto Sans JP', sans-serif;
+      font-weight: 300;
+      font-size: 11px;
+      color: #b8a898;
+      letter-spacing: 0.12em;
+      vertical-align: middle;
+    }
+
+    .page-privacy .hero {
+      background: var(--text);
+      padding: 56px 40px 48px;
+      border-bottom: 1px solid #4a3a2e;
+    }
+
+    .page-privacy .hero-inner {
+      max-width: 760px;
+      margin: 0 auto;
+    }
+
+    .page-privacy .hero-label {
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      color: #b8a898;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .page-privacy .hero h1 {
+      font-family: 'Noto Serif JP', serif;
+      font-weight: 400;
+      font-size: clamp(24px, 4vw, 34px);
+      color: #f5f0e8;
+      letter-spacing: 0.04em;
+      line-height: 1.4;
+      margin-bottom: 16px;
+    }
+
+    .page-privacy .hero-meta {
+      font-size: 12px;
+      color: #8a7a6e;
+      letter-spacing: 0.06em;
+    }
+
+    .page-privacy main {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 56px 40px 96px;
+    }
+
+    .page-privacy .lead {
+      background: var(--accent-lt);
+      border-left: 3px solid var(--accent);
+      padding: 20px 24px;
+      border-radius: 0 6px 6px 0;
+      font-size: 14px;
+      color: #5a4a3a;
+      margin-bottom: 48px;
+      line-height: 1.9;
+    }
+
+    .page-privacy section {
+      margin-bottom: 48px;
+    }
+
+    .page-privacy section:last-child { margin-bottom: 0; }
+
+    .page-privacy .section-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 16px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--divider);
+    }
+
+    .page-privacy .section-mark {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+      flex-shrink: 0;
+    }
+
+    .page-privacy .section-header h2 {
+      font-family: 'Noto Serif JP', serif;
+      font-weight: 400;
+      font-size: 17px;
+      color: var(--text);
+      letter-spacing: 0.04em;
+    }
+
+    .page-privacy p {
+      font-size: 14px;
+      color: #3d3028;
+      line-height: 1.95;
+      margin-bottom: 12px;
+    }
+
+    .page-privacy p:last-child { margin-bottom: 0; }
+
+    .page-privacy strong {
+      font-weight: 500;
+      color: var(--text);
+    }
+
+    .page-privacy .detail-list {
+      list-style: none;
+      padding: 0;
+      margin: 12px 0;
+    }
+
+    .page-privacy .detail-list li {
+      font-size: 14px;
+      color: #3d3028;
+      line-height: 1.85;
+      padding: 6px 0 6px 18px;
+      position: relative;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .page-privacy .detail-list li:last-child { border-bottom: none; }
+
+    .page-privacy .detail-list li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 5px;
+      height: 1px;
+      background: var(--accent);
+    }
+
+    .page-privacy .table-wrap {
+      overflow-x: auto;
+      margin: 16px 0;
+      border-radius: 6px;
+      border: 1px solid var(--border);
+    }
+
+    .page-privacy table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+
+    .page-privacy thead {
+      background: var(--accent-lt);
+    }
+
+    .page-privacy th {
+      text-align: left;
+      padding: 10px 16px;
+      font-weight: 500;
+      color: var(--accent);
+      letter-spacing: 0.04em;
+      font-size: 12px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .page-privacy td {
+      padding: 10px 16px;
+      border-bottom: 1px solid var(--border);
+      color: #3d3028;
+      line-height: 1.7;
+    }
+
+    .page-privacy tr:last-child td { border-bottom: none; }
+
+    .page-privacy .note-box {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 18px 22px;
+      margin-top: 14px;
+    }
+
+    .page-privacy .note-box p {
+      font-size: 13px;
+      color: var(--text-sub);
+      line-height: 1.9;
+      margin-bottom: 0;
+    }
+
+    .page-privacy .contact-box {
+      background: var(--text);
+      border-radius: 8px;
+      padding: 28px 32px;
+      margin-top: 16px;
+    }
+
+    .page-privacy .contact-box p {
+      color: #c8b8a8;
+      font-size: 13px;
+      line-height: 1.9;
+    }
+
+    .page-privacy .contact-box strong {
+      color: #f0e8dc;
+    }
+
+    .page-privacy .contact-link {
+      color: #f0e8dc;
+      text-decoration: none;
+      word-break: break-all;
+    }
+
+    .page-privacy footer {
+      background: #1e1612;
+      padding: 32px 40px;
+      text-align: center;
+    }
+
+    .page-privacy .footer-logo {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 15px;
+      color: #6a5a50;
+      letter-spacing: 0.1em;
+      margin-bottom: 10px;
+    }
+
+    .page-privacy .footer-copy {
+      font-size: 11px;
+      color: #4a3a30;
+      letter-spacing: 0.08em;
+    }
+
+    @media (max-width: 600px) {
+      .page-privacy header { padding: 0 20px; }
+      .page-privacy .hero  { padding: 40px 20px 36px; }
+      .page-privacy main   { padding: 40px 20px 72px; }
+      .page-privacy footer { padding: 28px 20px; }
+    }
