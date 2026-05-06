@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#2d2520">
+  <meta name="description" content="Kakeboは、日々の収支をシンプルに記録できる家計簿アプリです。入力したデータは端末内に保存され、外部へ送信されません。">
+  <title>Kakebo — 家計簿アプリ</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;500&family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #faf7f2;
+      --surface: #ffffff;
+      --border: #e8e0d5;
+      --text: #2d2520;
+      --text-sub: #7a6f66;
+      --accent: #8b6f47;
+      --accent-lt: #f0e8dc;
+      --divider: #d6cdc2;
+      --green: #53725f;
+      --blue: #4e6476;
+      --clay: #a66f57;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Noto Sans JP', sans-serif;
+      font-weight: 300;
+      font-size: 15px;
+      line-height: 1.85;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: inherit; }
+
+    header {
+      background: var(--text);
+      padding: 0 40px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .logo {
+      font-family: 'Noto Serif JP', serif;
+      font-weight: 400;
+      font-size: 18px;
+      color: #fff;
+      letter-spacing: 0.08em;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .logo span {
+      display: inline-block;
+      margin-left: 10px;
+      font-family: 'Noto Sans JP', sans-serif;
+      font-weight: 300;
+      font-size: 11px;
+      color: #b8a898;
+      letter-spacing: 0.12em;
+      vertical-align: middle;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+
+    nav a {
+      color: #c8b8a8;
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-decoration: none;
+    }
+
+    .hero {
+      background:
+        linear-gradient(135deg, rgba(45, 37, 32, 0.96), rgba(63, 48, 39, 0.92)),
+        radial-gradient(circle at 80% 20%, rgba(139, 111, 71, 0.34), transparent 34%);
+      border-bottom: 1px solid #4a3a2e;
+      color: #f5f0e8;
+      min-height: 560px;
+      padding: 72px 40px 52px;
+      display: flex;
+      align-items: center;
+    }
+
+    .hero-inner {
+      width: 100%;
+      max-width: 1040px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 360px;
+      gap: 56px;
+      align-items: center;
+    }
+
+    .hero-label {
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      color: #b8a898;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+
+    h1 {
+      font-family: 'Noto Serif JP', serif;
+      font-weight: 400;
+      font-size: clamp(30px, 5vw, 48px);
+      line-height: 1.35;
+      letter-spacing: 0.04em;
+      margin-bottom: 22px;
+    }
+
+    .hero-copy {
+      max-width: 560px;
+      color: #d5c8bc;
+      font-size: 15px;
+      line-height: 2;
+      margin-bottom: 30px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      padding: 0 22px;
+      border-radius: 6px;
+      border: 1px solid transparent;
+      font-size: 13px;
+      letter-spacing: 0.06em;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .button-primary {
+      background: #f0e8dc;
+      color: var(--text);
+      border-color: #f0e8dc;
+    }
+
+    .button-secondary {
+      color: #f0e8dc;
+      border-color: #7a6656;
+    }
+
+    .app-panel {
+      background: #f8f3ea;
+      border: 1px solid #d8cdbc;
+      border-radius: 8px;
+      padding: 24px;
+      color: var(--text);
+      box-shadow: 0 24px 60px rgba(18, 12, 8, 0.24);
+    }
+
+    .app-panel-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      padding-bottom: 18px;
+      border-bottom: 1px solid var(--divider);
+      margin-bottom: 20px;
+    }
+
+    .month {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 19px;
+      letter-spacing: 0.05em;
+    }
+
+    .balance {
+      font-size: 12px;
+      color: var(--text-sub);
+      text-align: right;
+    }
+
+    .balance strong {
+      display: block;
+      color: var(--text);
+      font-size: 22px;
+      font-weight: 400;
+      line-height: 1.3;
+    }
+
+    .summary-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .summary-item {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 12px 14px;
+    }
+
+    .summary-label {
+      color: var(--text-sub);
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      margin-bottom: 4px;
+    }
+
+    .summary-value {
+      color: var(--text);
+      font-size: 17px;
+      font-weight: 400;
+    }
+
+    .records {
+      list-style: none;
+      display: grid;
+      gap: 10px;
+    }
+
+    .records li {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 12px 14px;
+      font-size: 13px;
+    }
+
+    .record-name {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      min-width: 0;
+    }
+
+    .dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      flex: 0 0 auto;
+    }
+
+    .dot-green { background: var(--green); }
+    .dot-blue { background: var(--blue); }
+    .dot-clay { background: var(--clay); }
+
+    main {
+      max-width: 1040px;
+      margin: 0 auto;
+      padding: 64px 40px 96px;
+    }
+
+    .lead {
+      background: var(--accent-lt);
+      border-left: 3px solid var(--accent);
+      border-radius: 0 6px 6px 0;
+      color: #5a4a3a;
+      font-size: 14px;
+      line-height: 1.95;
+      margin-bottom: 56px;
+      padding: 20px 24px;
+    }
+
+    section {
+      margin-bottom: 56px;
+    }
+
+    section:last-child { margin-bottom: 0; }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 20px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--divider);
+    }
+
+    .section-mark {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+      flex-shrink: 0;
+    }
+
+    h2 {
+      font-family: 'Noto Serif JP', serif;
+      font-weight: 400;
+      font-size: 19px;
+      color: var(--text);
+      letter-spacing: 0.04em;
+    }
+
+    p {
+      color: #3d3028;
+      font-size: 14px;
+      line-height: 1.95;
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .feature-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 22px;
+      min-height: 190px;
+    }
+
+    .feature-number {
+      color: var(--accent);
+      font-family: 'Noto Serif JP', serif;
+      font-size: 22px;
+      margin-bottom: 18px;
+    }
+
+    .feature-card h3 {
+      font-family: 'Noto Serif JP', serif;
+      font-weight: 400;
+      font-size: 16px;
+      letter-spacing: 0.04em;
+      margin-bottom: 10px;
+    }
+
+    .feature-card p {
+      color: var(--text-sub);
+      font-size: 13px;
+      line-height: 1.9;
+    }
+
+    .privacy-band {
+      background: var(--text);
+      border-radius: 8px;
+      color: #f0e8dc;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 28px;
+      align-items: center;
+      padding: 30px 34px;
+    }
+
+    .privacy-band h2 {
+      color: #f5f0e8;
+      margin-bottom: 8px;
+    }
+
+    .privacy-band p {
+      color: #c8b8a8;
+      font-size: 13px;
+      line-height: 1.9;
+    }
+
+    .privacy-band .button {
+      color: #f0e8dc;
+      border-color: #7a6656;
+    }
+
+    footer {
+      background: #1e1612;
+      padding: 32px 40px;
+      text-align: center;
+    }
+
+    .footer-logo {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 15px;
+      color: #6a5a50;
+      letter-spacing: 0.1em;
+      margin-bottom: 10px;
+    }
+
+    .footer-copy {
+      font-size: 11px;
+      color: #4a3a30;
+      letter-spacing: 0.08em;
+    }
+
+    @media (max-width: 860px) {
+      .hero-inner {
+        grid-template-columns: 1fr;
+        gap: 36px;
+      }
+
+      .app-panel {
+        max-width: 420px;
+      }
+
+      .feature-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .feature-card {
+        min-height: auto;
+      }
+    }
+
+    @media (max-width: 600px) {
+      header {
+        height: auto;
+        min-height: 60px;
+        padding: 14px 20px;
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      .logo span {
+        display: block;
+        margin-left: 0;
+        margin-top: 2px;
+      }
+
+      nav {
+        gap: 14px;
+      }
+
+      .hero {
+        min-height: auto;
+        padding: 48px 20px 44px;
+      }
+
+      .hero-actions {
+        align-items: stretch;
+        flex-direction: column;
+      }
+
+      .button {
+        width: 100%;
+      }
+
+      main {
+        padding: 44px 20px 72px;
+      }
+
+      .summary-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .records li {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 6px;
+      }
+
+      .privacy-band {
+        grid-template-columns: 1fr;
+        padding: 26px 22px;
+      }
+
+      footer {
+        padding: 28px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <a href="index.html" class="logo">Kakebo<span>家計簿アプリ</span></a>
+    <nav aria-label="主要リンク">
+      <a href="#features">特徴</a>
+      <a href="privacy_policy.html">プライバシー</a>
+    </nav>
+  </header>
+
+  <div class="hero">
+    <div class="hero-inner">
+      <div>
+        <p class="hero-label">Simple Budget App</p>
+        <h1>毎日の支出を、静かに整える。</h1>
+        <p class="hero-copy">
+          Kakeboは、収入と支出をすばやく記録し、月ごとのお金の流れを見返せる家計簿アプリです。
+          余計な機能を増やしすぎず、続けやすさと見やすさを大切にしています。
+        </p>
+        <div class="hero-actions">
+          <a href="#features" class="button button-primary">特徴を見る</a>
+          <a href="privacy_policy.html" class="button button-secondary">プライバシーポリシー</a>
+        </div>
+      </div>
+
+      <div class="app-panel" aria-label="アプリ画面イメージ">
+        <div class="app-panel-top">
+          <div class="month">2026年5月</div>
+          <div class="balance">
+            残高
+            <strong>¥84,320</strong>
+          </div>
+        </div>
+
+        <div class="summary-grid">
+          <div class="summary-item">
+            <div class="summary-label">収入</div>
+            <div class="summary-value">¥250,000</div>
+          </div>
+          <div class="summary-item">
+            <div class="summary-label">支出</div>
+            <div class="summary-value">¥165,680</div>
+          </div>
+        </div>
+
+        <ul class="records">
+          <li>
+            <span class="record-name"><span class="dot dot-green"></span>食費</span>
+            <span>¥2,840</span>
+          </li>
+          <li>
+            <span class="record-name"><span class="dot dot-blue"></span>交通</span>
+            <span>¥620</span>
+          </li>
+          <li>
+            <span class="record-name"><span class="dot dot-clay"></span>日用品</span>
+            <span>¥1,280</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <main>
+    <div class="lead">
+      記録した家計データは端末内に保存されます。クラウド同期や広告トラッキングに頼らず、自分のペースで家計を見直せる設計です。
+    </div>
+
+    <section id="features">
+      <div class="section-header">
+        <span class="section-mark"></span>
+        <h2>Kakeboの特徴</h2>
+      </div>
+
+      <div class="feature-grid">
+        <article class="feature-card">
+          <div class="feature-number">01</div>
+          <h3>すばやく記録</h3>
+          <p>金額・カテゴリー・日付を中心に、日々の収支を迷わず入力できます。家計簿を続けるための軽さを大切にしています。</p>
+        </article>
+
+        <article class="feature-card">
+          <div class="feature-number">02</div>
+          <h3>月ごとに確認</h3>
+          <p>収入、支出、残高を月単位で整理して確認できます。細かな支出の積み重なりも見返しやすくなります。</p>
+        </article>
+
+        <article class="feature-card">
+          <div class="feature-number">03</div>
+          <h3>端末内に保存</h3>
+          <p>入力したデータはお使いのデバイス内に保存されます。外部サーバーへの送信や広告目的の追跡は行いません。</p>
+        </article>
+      </div>
+    </section>
+
+    <section>
+      <div class="privacy-band">
+        <div>
+          <h2>プライバシーについて</h2>
+          <p>本アプリは、氏名・住所・メールアドレスなどの個人情報を収集しません。詳しい取り扱いはプライバシーポリシーをご確認ください。</p>
+        </div>
+        <a href="privacy_policy.html" class="button">詳細を見る</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-logo">Kakebo</div>
+    <div class="footer-copy">© 2026 MetaFact Inc. All rights reserved.</div>
+  </footer>
+
+</body>
+</html>
