@@ -502,6 +502,7 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
+      gap: 20px;
     }
 
     .page-privacy .logo {
@@ -522,6 +523,19 @@
       color: #b8a898;
       letter-spacing: 0.12em;
       vertical-align: middle;
+    }
+
+    .page-privacy nav {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .page-privacy nav a {
+      color: #c8b8a8;
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-decoration: none;
     }
 
     .page-privacy .hero {
@@ -744,8 +758,342 @@
     }
 
     @media (max-width: 600px) {
-      .page-privacy header { padding: 0 20px; }
+      .page-privacy header {
+        height: auto;
+        min-height: 60px;
+        padding: 14px 20px;
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 8px;
+      }
+      .page-privacy .logo span {
+        display: block;
+        margin-left: 0;
+        margin-top: 2px;
+      }
+      .page-privacy nav { gap: 14px; }
       .page-privacy .hero  { padding: 40px 20px 36px; }
       .page-privacy main   { padding: 40px 20px 72px; }
       .page-privacy footer { padding: 28px 20px; }
+    }
+
+/* support.html */
+    .page-support *, .page-support *::before, .page-support *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body.page-support {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Noto Sans JP', sans-serif;
+      font-weight: 300;
+      font-size: 15px;
+      line-height: 1.85;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .page-support header {
+      background: var(--text);
+      padding: 0 40px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .page-support .logo {
+      font-family: 'Noto Serif JP', serif;
+      font-weight: 400;
+      font-size: 18px;
+      color: #fff;
+      letter-spacing: 0.08em;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .page-support .logo span {
+      display: inline-block;
+      margin-left: 10px;
+      font-family: 'Noto Sans JP', sans-serif;
+      font-weight: 300;
+      font-size: 11px;
+      color: #b8a898;
+      letter-spacing: 0.12em;
+      vertical-align: middle;
+    }
+
+    .page-support nav {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .page-support nav a {
+      color: #c8b8a8;
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-decoration: none;
+    }
+
+    .page-support .hero {
+      background: var(--text);
+      padding: 56px 40px 48px;
+      border-bottom: 1px solid #4a3a2e;
+    }
+
+    .page-support .hero-inner {
+      max-width: 760px;
+      margin: 0 auto;
+    }
+
+    .page-support .hero-label {
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      color: #b8a898;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .page-support .hero h1 {
+      font-family: 'Noto Serif JP', serif;
+      font-weight: 400;
+      font-size: clamp(24px, 4vw, 34px);
+      color: #f5f0e8;
+      letter-spacing: 0.04em;
+      line-height: 1.4;
+      margin-bottom: 16px;
+    }
+
+    .page-support .hero-meta {
+      font-size: 12px;
+      color: #8a7a6e;
+      letter-spacing: 0.06em;
+    }
+
+    .page-support main {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 56px 40px 96px;
+    }
+
+    .page-support .lead {
+      background: var(--accent-lt);
+      border-left: 3px solid var(--accent);
+      padding: 20px 24px;
+      border-radius: 0 6px 6px 0;
+      font-size: 14px;
+      color: #5a4a3a;
+      margin-bottom: 48px;
+      line-height: 1.9;
+    }
+
+    .page-support section {
+      margin-bottom: 48px;
+    }
+
+    .page-support section:last-child { margin-bottom: 0; }
+
+    .page-support .section-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 16px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--divider);
+    }
+
+    .page-support .section-mark {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+      flex-shrink: 0;
+    }
+
+    .page-support h2 {
+      font-family: 'Noto Serif JP', serif;
+      font-weight: 400;
+      font-size: 17px;
+      color: var(--text);
+      letter-spacing: 0.04em;
+    }
+
+    .page-support p {
+      font-size: 14px;
+      color: #3d3028;
+      line-height: 1.95;
+    }
+
+    .page-support .contact-list {
+      display: grid;
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+
+    .page-support .contact-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      color: var(--text);
+      display: block;
+      padding: 18px 22px;
+      text-decoration: none;
+    }
+
+    .page-support .contact-label {
+      color: var(--text-sub);
+      display: block;
+      font-size: 12px;
+      letter-spacing: 0.06em;
+      margin-bottom: 4px;
+    }
+
+    .page-support .contact-card strong {
+      color: var(--text);
+      display: block;
+      font-size: 17px;
+      font-weight: 400;
+      line-height: 1.5;
+      word-break: break-all;
+    }
+
+    .page-support .note-box {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 18px 22px;
+      margin-top: 14px;
+    }
+
+    .page-support .note-box p {
+      font-size: 13px;
+      color: var(--text-sub);
+      line-height: 1.9;
+    }
+
+    .page-support .faq-list {
+      display: grid;
+      gap: 14px;
+    }
+
+    .page-support .faq-item {
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 16px;
+    }
+
+    .page-support .faq-item:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .page-support .faq-item h3 {
+      font-family: 'Noto Serif JP', serif;
+      font-weight: 400;
+      font-size: 15px;
+      letter-spacing: 0.04em;
+      margin-bottom: 8px;
+    }
+
+    .page-support .faq-item p {
+      color: var(--text-sub);
+      font-size: 13px;
+      line-height: 1.9;
+    }
+
+    .page-support .support-band {
+      background: var(--text);
+      border-radius: 8px;
+      color: #f0e8dc;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 28px;
+      align-items: center;
+      padding: 30px 34px;
+    }
+
+    .page-support .support-band h2 {
+      color: #f5f0e8;
+      margin-bottom: 8px;
+    }
+
+    .page-support .support-band p {
+      color: #c8b8a8;
+      font-size: 13px;
+      line-height: 1.9;
+    }
+
+    .page-support .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      padding: 0 22px;
+      border-radius: 6px;
+      border: 1px solid #7a6656;
+      color: #f0e8dc;
+      font-size: 13px;
+      letter-spacing: 0.06em;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .page-support footer {
+      background: #1e1612;
+      padding: 32px 40px;
+      text-align: center;
+    }
+
+    .page-support .footer-logo {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 15px;
+      color: #6a5a50;
+      letter-spacing: 0.1em;
+      margin-bottom: 10px;
+    }
+
+    .page-support .footer-copy {
+      font-size: 11px;
+      color: #4a3a30;
+      letter-spacing: 0.08em;
+    }
+
+    @media (max-width: 600px) {
+      .page-support header {
+        height: auto;
+        min-height: 60px;
+        padding: 14px 20px;
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      .page-support .logo span {
+        display: block;
+        margin-left: 0;
+        margin-top: 2px;
+      }
+
+      .page-support nav {
+        gap: 14px;
+      }
+
+      .page-support .hero {
+        padding: 40px 20px 36px;
+      }
+
+      .page-support main {
+        padding: 40px 20px 72px;
+      }
+
+      .page-support .support-band {
+        grid-template-columns: 1fr;
+        padding: 26px 22px;
+      }
+
+      .page-support .button {
+        width: 100%;
+      }
+
+      .page-support footer {
+        padding: 28px 20px;
+      }
     }
