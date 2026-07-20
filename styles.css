@@ -635,6 +635,14 @@
       color: var(--text);
     }
 
+    .page-privacy .text-link {
+      color: var(--accent);
+      font-weight: 400;
+      overflow-wrap: anywhere;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
     .page-privacy .detail-list {
       list-style: none;
       padding: 0;
